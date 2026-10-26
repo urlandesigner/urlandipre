@@ -1,0 +1,192 @@
+/* Seção "Experiência Profissional" (Início e Sobre).
+   Substitui a grade de linhas fixas do Website Builder, que vazava o conteúdo dos cards.
+   Valores tirados do próprio site: roxo #7120d1, Poppins nos títulos, Manrope no texto. */
+.xp {
+  --xp-purple: rgb(113, 32, 209);
+  --xp-purple-soft: rgba(111, 31, 209, 0.12);
+  --xp-purple-muted: rgb(176, 131, 229);
+  --xp-ink: rgb(26, 26, 26);
+  --xp-ink-2: rgb(29, 30, 32);
+  --xp-text: rgb(71, 71, 71);
+  --xp-year: rgba(5, 5, 5, 0.64);
+  --xp-card: rgba(240, 240, 240, 0.49);
+  --xp-line: rgba(0, 0, 0, 0.1);
+  --xp-line-inv: rgba(255, 255, 255, 0.16);
+  --xp-gap: 24px;
+  --xp-pad: 32px;
+
+  padding: 56px 16px 64px;
+  background: rgb(255, 255, 255);
+}
+
+.xp__inner {
+  max-width: 1224px;
+  margin: 0 auto;
+}
+
+.xp__head {
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.xp__title {
+  margin: 0 0 16px;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--xp-ink);
+}
+
+.xp__mark {
+  background: linear-gradient(transparent 45%, var(--xp-purple-soft) 45%);
+}
+
+.xp__intro {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--xp-text);
+}
+
+.xp__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--xp-gap);
+  align-items: stretch;
+}
+
+.xp__photo {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.xp__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.xp__card {
+  padding: var(--xp-pad);
+  background: var(--xp-card);
+}
+
+.xp__card--purple {
+  background: var(--xp-purple);
+  color: rgb(255, 255, 255);
+}
+
+.xp__card-title {
+  margin: 0 0 24px;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--xp-ink);
+}
+
+.xp__card--purple .xp__card-title {
+  color: inherit;
+}
+
+.xp__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.xp__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 16px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--xp-line);
+}
+
+.xp__item:last-child {
+  border-bottom: 0;
+}
+
+.xp__card--purple .xp__item {
+  border-color: var(--xp-line-inv);
+}
+
+.xp__name {
+  grid-column: 1;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--xp-ink-2);
+}
+
+.xp__card--purple .xp__name {
+  color: inherit;
+}
+
+.xp__role {
+  grid-column: 1;
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--xp-purple);
+}
+
+.xp__card--purple .xp__role {
+  color: var(--xp-purple-muted);
+}
+
+.xp__year {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--xp-year);
+}
+
+.xp__card--purple .xp__year {
+  color: inherit;
+}
+
+/* Tablet: foto sai, os dois cards ficam lado a lado */
+@media (max-width: 920px) {
+  .xp__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xp__photo {
+    display: none;
+  }
+}
+
+/* Celular: um card embaixo do outro */
+@media (max-width: 680px) {
+  .xp {
+    padding: 40px 16px 48px;
+  }
+
+  .xp__head {
+    margin-bottom: 40px;
+  }
+
+  .xp__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .xp {
+    --xp-pad: 24px;
+  }
+}
